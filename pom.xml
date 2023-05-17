@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- POMのバージョン -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- プロジェクトを一意に識別する名前。
+       プロジェクトのルートパッケージ名を指定するのが一般的です。 -->
+  <groupId>com.sample</groupId>
+
+  <!-- プロジェクトの成果物の名前。
+        作成する JAR や WAR, EAR ファイルなどの名前に使用されます。 -->
+  <artifactId>sample</artifactId>
+
+  <!-- プロジェクトのバージョン。 -->
+  <version>1.0.0</version>
+  
+  <!-- 作成する成果物のパッケージング・タイプ。
+        jar (デフォルト), war, ear などがあります。 -->
+  <packaging>war</packaging>
+
+  <!-- プロジェクトの表示名。 ドキュメントを作成するときなどに使用されます。 -->
+  <!-- <name>sample</name> -->
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>17</java.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
+  <!-- プロジェクトが依存するライブラリの情報。 -->
+  <dependencies>
+    <!-- Java Servlet -->
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- tomcat は必要なし -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <version>3.0.6</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>sample</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>3.0.6</version>
+        <!-- 実行クラスを定義する場合 -->
+        <!--
+        <configuration>
+          <mainClass>com.example.app.Main</mainClass>　←実行クラス
+        </configuration>
+        -->
+      </plugin>
+    </plugins>
+  </build>
+</project>
